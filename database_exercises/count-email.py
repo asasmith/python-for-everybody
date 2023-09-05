@@ -22,7 +22,7 @@ try:
     for line in fileHandle:
         if line.startswith('From: '):
             splitLine = line.split(' ')
-            email = splitLine[1]
+            email = splitLine[1].strip()
             cursor.execute('SELECT count FROM emails WHERE email = %s', (email,))
             row = cursor.fetchone()
 
